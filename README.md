@@ -139,7 +139,70 @@ print(y)
 ~~~
 ![image](https://github.com/user-attachments/assets/1bad9427-65a1-48f2-a9c2-f48f03215cdd)
 ~~~
-
+x=new_data[features].values
+print(x)
 ~~~
+![image](https://github.com/user-attachments/assets/cc8dd6d9-90a4-4f57-a2a9-39f9e215085b)
+~~~
+train_x, test_x, train_y, test_y=train_test_split(x,y,test_size=0.3, random_state=0)
+KNN_classifier=KNeighborsClassifier(n_neighbors=5)
+KNN_classifier.fit(train_x, train_y)
+~~~
+![image](https://github.com/user-attachments/assets/64d10502-f031-4427-b2a2-7a6f3c7b5752)
+~~~
+prediction=KNN_classifier.predict(test_x)
+confusionMatrix=confusion_matrix(test_y, prediction)
+print(confusionMatrix)
+~~~
+![image](https://github.com/user-attachments/assets/c9d7ec85-154c-4001-8606-623d79d751e0)
+~~~
+accuracy_score=accuracy_score(test_y, prediction)
+print(accuracy_score)
+~~~
+![image](https://github.com/user-attachments/assets/82549214-136f-43d7-a7cc-c878fd400536)
+~~~
+print('Misclassified samples: %d' % (test_y !=prediction).sum())
+~~~
+![image](https://github.com/user-attachments/assets/51ae126f-e9a5-4a21-aaa6-a6d6fb5abc03)
+~~~
+from scipy.stats import chi2_contingency
+import seaborn as sns
+tips=sns.load_dataset('tips')
+tips.head()
+~~~
+![image](https://github.com/user-attachments/assets/b9e95592-30d3-4352-844d-c41f3e209af7)
+~~~
+contingency_table=pd.crosstab(tips['sex'], tips['time'])
+print(contingency_table)
+~~~
+![image](https://github.com/user-attachments/assets/ca38d5f8-4ca8-49db-a263-1e5a4b2829a2)
+~~~
+chi2, p, _, _ = chi2_contingency(contingency_table)
+print(f'Chi-Square Statistic: {chi2}')
+print(f'P-value: {p}')
+~~~
+![image](https://github.com/user-attachments/assets/4a746b12-330a-47db-b0bd-75b4d8d98649)
+~~~
+from sklearn.feature_selection import SelectKBest, mutual_info_classif, f_classif
+data={
+    'Feature1': [1, 2, 3, 4, 5],
+    'Feature2': ['A', 'B', 'C', 'A', 'B'],
+    'Feature3': [0, 1, 1, 0, 1],
+    'Target': [0, 1, 1, 0, 1]
+}
+df=pd.DataFrame(data)
+X=df[['Feature1', 'Feature3']]
+y=df['Target']
+selector=SelectKBest(score_func=mutual_info_classif, k=1)
+X_new=selector.fit_transform(X,y)
+selected_feature_indices=selector.get_support(indices=True)
+selected_features = X.columns[selected_feature_indices]
+print('Selected Features:')
+print(selected_features)
+~~~
+![image](https://github.com/user-attachments/assets/129424f0-0447-43c7-af7c-ad08823e8780)
+
 # RESULT:
-       # INCLUDE YOUR RESULT HERE
+Finally,perform Feature Scaling and Feature Selection process is executed successfully.
+
+
