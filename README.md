@@ -36,16 +36,16 @@ import numpy as np
 df=pd.read_csv("/content/bmi.csv")
 df.head()
 ~~~
-![image](https://github.com/user-attachments/assets/39c05fab-6d7c-4cbb-8820-94c508d0f5c8)
+![Screenshot 2024-11-05 113358](https://github.com/user-attachments/assets/27101741-3fc2-473f-a18f-91c8ff648882)
 ~~~
 df.dropna()
 ~~~
-![image](https://github.com/user-attachments/assets/acd68e50-2a45-4511-b583-ab0f85751f6f)
+![Screenshot 2024-11-05 113433](https://github.com/user-attachments/assets/ca3b128f-8b08-419f-96d1-164952a269fe)
 ~~~
 max_vals=np.max(np.abs(df[['Height','Weight']]))
 max_vals
 ~~~
-![image](https://github.com/user-attachments/assets/b696f04e-baab-40a6-86a1-762b8ca168ab)
+![Screenshot 2024-11-05 113516](https://github.com/user-attachments/assets/006cfd37-0e26-4407-9fe4-1557518b6bc6)
 ~~~
 df1=pd.read_csv("/content/bmi.csv")
 from sklearn.preprocessing import StandardScaler
@@ -53,14 +53,14 @@ sc=StandardScaler()
 df1[['Height', 'Weight']]=sc.fit_transform(df1[['Height', 'Weight']])
 df1.head(10)
 ~~~
-![image](https://github.com/user-attachments/assets/2a9d36c0-0a15-4f82-bae1-f47a810332ae)
+![Screenshot 2024-11-05 113524](https://github.com/user-attachments/assets/ac450b53-1e0e-480f-86bc-349e5260da4b)
 ~~~
 from sklearn.preprocessing import MinMaxScaler
 scaler=MinMaxScaler()
 df[['Height', 'Weight']]=scaler.fit_transform(df[['Height', 'Weight']])
 df.head(10)
 ~~~
-![image](https://github.com/user-attachments/assets/4ddf1c87-8dcc-435f-8ce6-883ff71928e7)
+![Screenshot 2024-11-05 113541](https://github.com/user-attachments/assets/5e87d539-b34d-4f6e-95ee-63cb4ad75ece)
 ~~~
 df2=pd.read_csv("/content/bmi.csv")
 from sklearn.preprocessing import Normalizer
@@ -68,7 +68,7 @@ scaler=Normalizer()
 df2[['Height', 'Weight']]=scaler.fit_transform(df2[['Height', 'Weight']])
 df2
 ~~~
-![image](https://github.com/user-attachments/assets/c584524e-148d-412b-ba56-d15c2ef058e0)
+![Screenshot 2024-11-05 113617](https://github.com/user-attachments/assets/2556e66f-3c0c-4435-8771-e7598fa70205)
 ~~~
 df3=pd.read_csv("/content/bmi.csv")
 from sklearn.preprocessing import MaxAbsScaler
@@ -76,7 +76,7 @@ scaler=MaxAbsScaler()
 df3[['Height', 'Weight']]=scaler.fit_transform(df3[['Height', 'Weight']])
 df3
 ~~~
-![image](https://github.com/user-attachments/assets/de7fcd30-eec6-4e5b-8637-27bfd5642ea0)
+![Screenshot 2024-11-05 113632](https://github.com/user-attachments/assets/26a54fba-d2b2-4d21-9cfc-5fd503386abe)
 ~~~
 df4=pd.read_csv("/content/bmi.csv")
 from sklearn.preprocessing import RobustScaler
@@ -84,7 +84,7 @@ scaler=RobustScaler()
 df4[['Height', 'Weight']]=scaler.fit_transform(df4[['Height', 'Weight']])
 df4.head()
 ~~~
-![image](https://github.com/user-attachments/assets/522c6470-6bf1-4779-801d-84d335103957)
+![Screenshot 2024-11-05 113641](https://github.com/user-attachments/assets/2144bf69-a10d-40da-8dbd-cd3f81b28398)
 ~~~
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -93,95 +93,93 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 data=pd.read_csv("/content/income(1) (1).csv", na_values=[" ?"])
 data
 ~~~
-![image](https://github.com/user-attachments/assets/d4d97e63-a355-4a6b-92b1-d1283f768fe6)
+![Screenshot 2024-11-05 113657](https://github.com/user-attachments/assets/4336230a-caae-46e5-bc2a-7c635dc040bb)
 ~~~
 data.isnull().sum()
-~~~
-~~~
 missing=data[data.isnull().any(axis=1)]
 missing
 ~~~
-![image](https://github.com/user-attachments/assets/befbd677-2353-444f-b8b5-b357e419dcbd)
+![Screenshot 2024-11-05 113747](https://github.com/user-attachments/assets/4475f19a-52f4-40b1-9802-f985bc4eac3a)
 ~~~
 data2=data.dropna(axis=0)
 data2
 ~~~
-![image](https://github.com/user-attachments/assets/8ca4df1e-5d77-42a6-9b08-ecc7f257c068)
+![Screenshot 2024-11-05 113756](https://github.com/user-attachments/assets/848ec85f-ce03-41b6-b8d6-7d1167e74d1f)
 ~~~
 sal=data['SalStat']
 data2['SalStat']=data2['SalStat'].map({' less than or equal to 50,000' : 0, ' greater than 50,000' : 1})
 print(data2['SalStat'])
 ~~~
-![image](https://github.com/user-attachments/assets/7362148c-fa33-4d11-b022-01ae1078b6e1)
+![Screenshot 2024-11-05 113831](https://github.com/user-attachments/assets/ce77aaaa-8abe-4321-894c-2d35ff9d3eef)
 ~~~
 sal2=data2['SalStat']
 dfs=pd.concat([sal , sal2], axis=1)
 dfs
 ~~~
-![image](https://github.com/user-attachments/assets/1bdcd3e8-a34a-4bfd-94ad-3d2a313dd6a8)
+![Screenshot 2024-11-05 113837](https://github.com/user-attachments/assets/bd6754ea-33c6-4616-a83d-8ebe7b9b16ea)
 ~~~
 data2
 ~~~
-![image](https://github.com/user-attachments/assets/d4e4da80-d96e-4f6d-af60-3b0d571c806d)
+![Screenshot 2024-11-05 113850](https://github.com/user-attachments/assets/6cf1a855-9bdf-432c-a821-ff5c9f971789)
 ~~~
 new_data=pd.get_dummies(data2, drop_first=True)
 new_data
 ~~~
-![image](https://github.com/user-attachments/assets/509c7bd1-a391-42bc-ba66-a8f1a13bd13f)
+![Screenshot 2024-11-05 113850](https://github.com/user-attachments/assets/6cf1a855-9bdf-432c-a821-ff5c9f971789)
 ~~~
 columns_list=list(new_data.columns)
 print(columns_list)
 ~~~
-![image](https://github.com/user-attachments/assets/d8627461-e051-4f2c-a9d3-8fecfd74cbb3)
+![Screenshot 2024-11-05 113901](https://github.com/user-attachments/assets/f7a860b8-8d2b-4ee1-97c3-ee198b63f056)
 ~~~
 y=new_data['SalStat'].values
 print(y)
 ~~~
-![image](https://github.com/user-attachments/assets/1bad9427-65a1-48f2-a9c2-f48f03215cdd)
+![Screenshot 2024-11-05 113913](https://github.com/user-attachments/assets/f7f0a47f-c38d-44d8-900f-edc55101b12b)
 ~~~
 x=new_data[features].values
 print(x)
 ~~~
-![image](https://github.com/user-attachments/assets/cc8dd6d9-90a4-4f57-a2a9-39f9e215085b)
+![Screenshot 2024-11-05 113947](https://github.com/user-attachments/assets/b9f23b0a-4fe0-4c3c-9988-cda81338aa8e)
 ~~~
 train_x, test_x, train_y, test_y=train_test_split(x,y,test_size=0.3, random_state=0)
 KNN_classifier=KNeighborsClassifier(n_neighbors=5)
 KNN_classifier.fit(train_x, train_y)
 ~~~
-![image](https://github.com/user-attachments/assets/64d10502-f031-4427-b2a2-7a6f3c7b5752)
+![Screenshot 2024-11-05 113952](https://github.com/user-attachments/assets/f101322a-5ac6-4842-a161-6453bf2edeee)
 ~~~
 prediction=KNN_classifier.predict(test_x)
 confusionMatrix=confusion_matrix(test_y, prediction)
 print(confusionMatrix)
 ~~~
-![image](https://github.com/user-attachments/assets/c9d7ec85-154c-4001-8606-623d79d751e0)
+![Screenshot 2024-11-05 114003](https://github.com/user-attachments/assets/77bbfd46-cf9c-4fe9-ad3c-d4fafff74314)
 ~~~
 accuracy_score=accuracy_score(test_y, prediction)
 print(accuracy_score)
 ~~~
-![image](https://github.com/user-attachments/assets/82549214-136f-43d7-a7cc-c878fd400536)
+![Screenshot 2024-11-05 114007](https://github.com/user-attachments/assets/e9d91d71-2732-46ff-98bc-60eb45b20a4a)
 ~~~
 print('Misclassified samples: %d' % (test_y !=prediction).sum())
 ~~~
-![image](https://github.com/user-attachments/assets/51ae126f-e9a5-4a21-aaa6-a6d6fb5abc03)
+![Screenshot 2024-11-05 114011](https://github.com/user-attachments/assets/1de8d60a-fe00-4db3-9ff3-d4a94044d0c5)
 ~~~
 from scipy.stats import chi2_contingency
 import seaborn as sns
 tips=sns.load_dataset('tips')
 tips.head()
 ~~~
-![image](https://github.com/user-attachments/assets/b9e95592-30d3-4352-844d-c41f3e209af7)
+![Screenshot 2024-11-05 114030](https://github.com/user-attachments/assets/dd4afde2-568a-41bf-ad8c-61ebe93750d8)
 ~~~
 contingency_table=pd.crosstab(tips['sex'], tips['time'])
 print(contingency_table)
 ~~~
-![image](https://github.com/user-attachments/assets/ca38d5f8-4ca8-49db-a263-1e5a4b2829a2)
+![Screenshot 2024-11-05 114058](https://github.com/user-attachments/assets/1da05760-1075-43a3-959b-c678f6d07db8)
 ~~~
 chi2, p, _, _ = chi2_contingency(contingency_table)
 print(f'Chi-Square Statistic: {chi2}')
 print(f'P-value: {p}')
 ~~~
-![image](https://github.com/user-attachments/assets/4a746b12-330a-47db-b0bd-75b4d8d98649)
+![Screenshot 2024-11-05 114210](https://github.com/user-attachments/assets/0e18939a-e987-48ce-9864-4f79dd2e35e9)
 ~~~
 from sklearn.feature_selection import SelectKBest, mutual_info_classif, f_classif
 data={
@@ -200,7 +198,7 @@ selected_features = X.columns[selected_feature_indices]
 print('Selected Features:')
 print(selected_features)
 ~~~
-![image](https://github.com/user-attachments/assets/129424f0-0447-43c7-af7c-ad08823e8780)
+![Screenshot 2024-11-05 114218](https://github.com/user-attachments/assets/9e65a07b-fda6-42b9-8ddb-53b362007da0)
 
 # RESULT:
 Finally,perform Feature Scaling and Feature Selection process is executed successfully.
